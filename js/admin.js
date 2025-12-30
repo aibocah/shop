@@ -55,17 +55,31 @@ function loadProducts() {
   }
 }
 
-function renderProducts(data) {
+function renderProducts(products) {
   const list = document.getElementById("productList");
   list.innerHTML = "";
-  data.forEach((p, i) => {
+
+  products.forEach((p, index) => {
     list.innerHTML += `
       <div class="card">
         <img src="${p.image}">
         <h3>${p.name}</h3>
         <p>${p.price}</p>
         <small>${p.type}</small>
+        <br><br>
+        <button onclick="editProduct(${index})">Edit</button>
+        <button onclick="deleteProduct(${index})">Hapus</button>
       </div>
     `;
-  });
 }
+function deleteProduct(index) {
+  if (!confirm("Yakin hapus produk ini?")) return;
+
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  products.splice(index, 1);
+  localStorage.setItem("products", JSON.stringify(products));
+
+  loadProducts();
+}
+    });
+
