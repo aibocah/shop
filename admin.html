@@ -18,6 +18,23 @@
   <div id="productList"></div>
 </div>
 
+  <div id="addForm" style="display:none;">
+  <h3>Tambah Produk</h3>
+
+  <select id="type">
+    <option value="own">Produk Sendiri</option>
+    <option value="affiliate">Produk Affiliate</option>
+  </select>
+
+  <input type="text" id="name" placeholder="Nama produk">
+  <input type="text" id="price" placeholder="Harga / Keterangan">
+  <input type="text" id="image" placeholder="Path gambar (assets/img/xxx.jpg)">
+  <textarea id="description" placeholder="Deskripsi produk"></textarea>
+  <input type="text" id="affiliateLink" placeholder="Link affiliate (opsional)">
+
+  <button onclick="saveProduct()">Simpan Produk</button>
+  </div>
+  
 <script src="js/admin.js"></script>
 </body>
 </html>
